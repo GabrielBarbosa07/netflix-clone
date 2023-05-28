@@ -4,6 +4,7 @@ import Image from "next/image";
 import Logo from "../../../public/images/logo.png";
 import Input from "../components/Input";
 import { useCallback, useState } from "react";
+import axios from "axios";
 
 const Auth = () => {
   const [name, setName] = useState("");
