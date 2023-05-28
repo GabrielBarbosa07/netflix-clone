@@ -61,9 +61,8 @@ const Auth = () => {
             </button>
 
             <p className="text-neutral-500 mt-12">
-              {variant === "login"
-                ? "Novo por aqui?"
-                : "Já possui uma conta?"}
+              {variant === "login" ? "Novo por aqui?" : "Já possui uma conta?"}
+
               <span
                 onClick={toggleVariant}
                 className="text-white ml-1 hover:underline cursor-pointer"
