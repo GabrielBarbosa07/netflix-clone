@@ -19,6 +19,18 @@ const Auth = () => {
     );
   }, []);
 
+  const register = useCallback(async () => {
+    try {
+      await axios.post("http://localhost:3000/api/register", {
+        email,
+        name,
+        password,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }, [email, name, password]);
+
   return (
     <div className="relative h-full bg-[url('/images/hero.jpg')] bg-no-repeat bg-center bg-fixed bg-cover">
       <div className="bg-black w-full h-full lg:bg-opacity-50">
@@ -57,8 +69,11 @@ const Auth = () => {
               />
             </form>
 
-            <button className="bg-red-600 py-3 text-white rounded-md w-full mt-10 hover:bg-red-700 transition font-bold">
-              Entrar
+            <button
+              onClick={register}
+              className="bg-red-600 py-3 text-white rounded-md w-full mt-10 hover:bg-red-700 transition font-bold"
+            >
+              {variant === "login" ? "Entrar" : "Registrar"}
             </button>
 
             <p className="text-neutral-500 mt-12">
