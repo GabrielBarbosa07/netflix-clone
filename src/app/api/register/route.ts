@@ -12,7 +12,7 @@ export async function POST(req: Request) {
 
         const existingUser = await prismadb.user.findUnique({
             where: {
-                email: email
+                email
             },
         })
 
@@ -32,7 +32,7 @@ export async function POST(req: Request) {
             }
         })
 
-        return NextResponse.json(user, { status: 405 })
+        return NextResponse.json(user, { status: 200 })
     } catch (error) {
         console.log(error)
         return NextResponse.json({ status: 400 })
