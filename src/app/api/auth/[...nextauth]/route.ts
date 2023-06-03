@@ -64,7 +64,7 @@ const handler = NextAuth({
     adapter: PrismaAdapter(prismadb),
     session: {
         strategy: "jwt",
-        // maxAge: 60 * 60 * 24 * 30 
+        maxAge: 60 * 60 * 24 * 30 
     },
     jwt: { secret: process.env.NEXTAUTH_JWT_SECRET, },
     secret: process.env.NEXTAUTH_SECRET
