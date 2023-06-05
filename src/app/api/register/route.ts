@@ -17,7 +17,7 @@ export async function POST(req: Request) {
         })
 
         if (existingUser) {
-            return NextResponse.json({ error: "Email taken" }, { status: 422 })
+            return NextResponse.json({ error: "Email already exists" }, { status: 422 })
         }
 
         const hashedPassword = await bcrypt.hash(password, 12)

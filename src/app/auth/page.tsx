@@ -45,18 +45,22 @@ const Auth = () => {
     }
   }, [email, password]);
 
-  const register = useCallback(async () => {
-    try {
-      await axios.post("http://localhost:3000/api/register", {
-        email,
-        name,
-        password,
-      });
-      login();
-    } catch (error) {
-      console.log(error);
-    }
-  }, [email, name, password, login]);
+  const register = useCallback(
+    async (e: { preventDefault: () => void }) => {
+      e.preventDefault();
+      try {
+        await axios.post("http://localhost:3000/api/register", {
+          email,
+          name,
+          password,
+        });
+        login();
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    [email, name, password, login]
+  );
 
   return (
     <>
