@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import Loading from "../loading";
 import Image from "next/image";
 import defaultBlue from "../../../public/images/default-blue.png";
+import Link from "next/link";
 
 const Profiles = () => {
   const { push } = useRouter();
@@ -30,7 +31,7 @@ const Profiles = () => {
           </h1>
 
           <div className="flex items-center justify-center gap-8 mt-10">
-            <div onClick={() => push("/")}>
+            <Link href="/">
               <div className="group flex-row w-44 mx-auto">
                 <div className="w-44 h-44 rounded-md flex items-center justify-center border-2 border-transparent group-hover:cursor-pointer group-hover:border-white overflow-hidden">
                   <Image src={defaultBlue} alt="Profile" width={176} />
@@ -40,14 +41,11 @@ const Profiles = () => {
                   {session?.user?.name}
                 </div>
               </div>
-            </div>
+            </Link>
           </div>
+          
         </div>
       )}
-
-      {/* {status === "authenticated" && (
-        <div className="text-4xl text-white">profiles </div>
-      )} */}
     </div>
   );
 };
