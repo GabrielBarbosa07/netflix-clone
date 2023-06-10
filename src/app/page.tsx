@@ -4,6 +4,7 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import Loading from "./loading";
 import Navbar from "./components/Navbar";
+import Billboard from "./components/Billboard";
 
 export default function Home() {
   const { push } = useRouter();
@@ -23,6 +24,7 @@ export default function Home() {
       {status === "authenticated" && (
         <>
           <Navbar />
+          <Billboard/>
         </>
       )}
     </>
