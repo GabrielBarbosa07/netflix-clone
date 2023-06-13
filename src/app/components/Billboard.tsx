@@ -1,6 +1,7 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import fetcher from "../../../lib/fetcher";
+
+import { AiOutlineInfoCircle } from "react-icons/ai";
 
 interface MovieProps {
   id: string;
@@ -16,10 +17,10 @@ const Billboard = () => {
   const [movie, setMovie] = useState<MovieProps>();
 
   useEffect(() => {
-    fetcher("http://localhost:3000/api/random").then((response) =>{setMovie(response)})
+    fetcher("http://localhost:3000/api/random").then((response) => {
+      setMovie(response);
+    });
   }, []);
-
-  console.log(movie);
 
   return (
     <div className="relative h-[56.25vw]">
@@ -53,10 +54,12 @@ const Billboard = () => {
             flex
             flex-row
             items-center
+            justify-center
             hover:bg-opacity-20
             transition
           "
           >
+            <AiOutlineInfoCircle className="mr-1" />
             Mais Informações
           </button>
         </div>
