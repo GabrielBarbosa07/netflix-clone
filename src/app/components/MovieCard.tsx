@@ -3,8 +3,6 @@ import React, { useCallback } from "react";
 
 import { BsFillPlayFill } from "react-icons/bs";
 
-// import { ChevronDownIcon } from "@heroicons/react/24/outline";
-// import { PlayIcon } from "react/";
 import { useRouter } from "next/navigation";
 
 interface MovieCardProps {
