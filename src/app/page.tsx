@@ -3,15 +3,17 @@
 import { useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
+
+import fetcher from "../../lib/fetcher";
+
 import Loading from "./loading";
 import Navbar from "./components/Navbar";
 import Billboard from "./components/Billboard";
 import MovieList from "./components/MovieList";
-import fetcher from "../../lib/fetcher";
 
 export default function Home() {
   const { push } = useRouter();
-  const { data: session, status } = useSession();
+  const { status } = useSession();
 
   const [movies, setMovies] = useState([]);
 

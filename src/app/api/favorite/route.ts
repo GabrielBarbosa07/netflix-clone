@@ -6,22 +6,6 @@ import prismadb from "../../../../lib/prismadb"
 import { useSession } from "next-auth/react";
 import { without } from "lodash";
 
-export const GetUser = async () => {
-    const { data: session } = useSession();
-
-    const user = await prismadb.user.findUnique({
-        where: {
-            email: session?.user?.email || ""
-        }
-    })
-
-    if (!user) {
-        return null;
-    }
-
-    return user;
-}
-
 export async function POST(req: NextApiRequest) {
     const { data: session } = useSession();
 
