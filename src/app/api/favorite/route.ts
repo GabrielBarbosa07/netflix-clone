@@ -1,15 +1,17 @@
 import { NextResponse } from "next/server"
 import { NextApiRequest } from "next"
 
+import serverAuth from "../../../../lib/serverAuth";
+
 import prismadb from "../../../../lib/prismadb"
 
-import { useSession } from "next-auth/react";
 import { without } from "lodash";
 
+//Adicionando o filme aos filmes favoritos do currentUser
 export async function POST(req: NextApiRequest) {
-    const { data: session } = useSession();
-
     try {
+        const { currentUser } = await serverAuth()
+
         const { movieId } = req.body
 
         const existingMovie = await prismadb.movie.findUnique({
@@ -24,7 +26,7 @@ export async function POST(req: NextApiRequest) {
 
         const user = await prismadb.user.update({
             where: {
-                email: session?.user?.email || "",
+                email: currentUser?.email || "",
             },
             data: {
                 favoriteIds: {
@@ -40,21 +42,12 @@ export async function POST(req: NextApiRequest) {
     }
 }
 
+//Removendo o filme dos filmes favoritos do currentUser
 export async function DELETE(req: NextApiRequest) {
-    const { data: session } = useSession();
-
     try {
+        const { currentUser } = await serverAuth()
+
         const { movieId } = req.body
-
-        const user = await prismadb.user.findUnique({
-            where: {
-                email: session?.user?.email || ""
-            }
-        })
-
-        if (!user) {
-            return null
-        }
 
         const existingMovie = await prismadb.movie.findUnique({
             where: {
@@ -66,11 +59,11 @@ export async function DELETE(req: NextApiRequest) {
             throw new Error("Invalid ID")
         }
 
-        const updatedFavoriteIds = without(user.favoriteIds, movieId)
+        const updatedFavoriteIds = without(currentUser.favoriteIds, movieId)
 
         const updatedUser = await prismadb.user.update({
             where: {
-                email: user.email || ""
+                email: currentUser.email || ""
             },
             data: {
                 favoriteIds: updatedFavoriteIds

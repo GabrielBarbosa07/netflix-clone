@@ -1,21 +1,17 @@
 import { NextResponse } from "next/server"
-import { NextApiRequest } from "next";
-import { getServerSession } from "next-auth/next"
-import { authOptions } from "../auth/[...nextauth]/authOptions";
+import serverAuth from "../../../../lib/serverAuth";
 
-export async function GET(req: NextApiRequest) {
+//Trazendo os filmes favoritos do currentUser
+export async function GET() {
     try {
-        const session = await getServerSession(authOptions);
-        console.log(session)
+        const { currentUser } = await serverAuth()
 
         const user = await prismadb.user.findUnique({
             where: {
-                email: session?.user?.email || ""
+                email: currentUser?.email || ""
             }
 
         })
-
-        console.log(user)
 
         const favoriteMovies = await prismadb.movie.findMany({
             where: {

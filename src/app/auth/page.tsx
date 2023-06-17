@@ -34,6 +34,7 @@ const Auth = () => {
   }, []);
 
   const login = useCallback(async () => {
+    if (!email || !password) return alert("Preencha todos os campos...");
     try {
       await signIn("credentials", {
         email,
@@ -48,6 +49,12 @@ const Auth = () => {
   const register = useCallback(
     async (e: { preventDefault: () => void }) => {
       e.preventDefault();
+
+      if (!name || !email || !password)
+        return alert(
+          "Preencha todos os campos para registrar uma nova conta..."
+        );
+
       try {
         await axios.post("http://localhost:3000/api/register", {
           email,
@@ -103,6 +110,7 @@ const Auth = () => {
                 </form>
 
                 <button
+                  type="button"
                   onClick={variant === "login" ? login : register}
                   className="bg-red-600 py-3 text-white rounded-md w-full mt-10 hover:bg-red-700 transition font-bold"
                 >
