@@ -1,37 +1,33 @@
 import { NextResponse } from "next/server"
 import { NextApiRequest } from "next";
-import { getSession } from "next-auth/react";
 import { getServerSession } from "next-auth/next"
-
+import { authOptions } from "../auth/[...nextauth]/authOptions";
 
 export async function GET(req: NextApiRequest) {
-    const session = await getServerSession(req);
-    return session
+    try {
+        const session = await getServerSession(authOptions);
+        console.log(session)
 
-    // if (!session) {
-    //     NextResponse.json({ error: "Não autenticado" }, { status: 401 });
-    //     return;
-    // }
+        const user = await prismadb.user.findUnique({
+            where: {
+                email: session?.user?.email || ""
+            }
 
-    // NextResponse.json(session.user, { status: 200 });
+        })
+
+        console.log(user)
+
+        const favoriteMovies = await prismadb.movie.findMany({
+            where: {
+                id: {
+                    in: user?.favoriteIds
+                }
+            }
+        })
+
+        return NextResponse.json(favoriteMovies, { status: 200 })
+    } catch (error) {
+        console.log(error)
+        return NextResponse.json({ status: 400 })
+    }
 }
-
-// export async function GET(req: NextApiRequest) {
-//     const session = await getSession()
-//     try {
-//         const { currentUser } = await serverAuth(req)
-
-//         const favoriteMovies = await prismadb.movie.findMany({
-//             where: {
-//                 id: {
-//                     in: currentUser?.favoriteIds
-//                 }
-//             }
-//         })
-
-//         return NextResponse.json(currentUser, { status: 200 })
-//     } catch (error) {
-//         console.log(error)
-//         return NextResponse.json({ status: 400 })
-//     }
-// }
