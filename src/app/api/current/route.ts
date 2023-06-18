@@ -3,7 +3,6 @@ import { NextResponse } from "next/server";
 
 import serverAuth from "../../../../lib/serverAuth";
 
-//Depois tenho que retirar essa função pois ficou redundante
 export default async function GET(req: NextApiRequest) {
     if (req.method !== "GET") {
         return NextResponse.json({ status: 405 })
