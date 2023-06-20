@@ -28,7 +28,7 @@ const FavoriteButton: React.FC<FavoriteButtonProps> = ({ movieId }) => {
       });
     } else {
       response = await axios.post("http://localhost:3000/api/favorite", {
-        movieId,
+        data: { movieId },
       });
     }
 

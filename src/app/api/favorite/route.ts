@@ -13,12 +13,14 @@ export async function POST(req: NextApiRequest) {
         const { currentUser } = await serverAuth()
 
         const { movieId } = req.body
+        console.log(movieId)
 
         const existingMovie = await prismadb.movie.findUnique({
             where: {
                 id: movieId
             }
         })
+        console.log(existingMovie)
 
         if (!existingMovie) {
             throw new Error("Invalid ID")
