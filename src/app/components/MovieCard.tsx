@@ -12,13 +12,14 @@ interface MovieCardProps {
 
 const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
   const { push } = useRouter();
+  console.log(data.id)
 
   const redirectToWatch = useCallback(
     () => push(`/watch/${data.id}`),
     [push, data.id]
   );
   return (
-    <div className="group bg-zinc-900 col-span relative h-[12vw]">
+    <div className="group bg-zinc-900 col-span relative h-[12vw]" key={data.id}>
       <img
         onClick={redirectToWatch}
         src={data.thumbnailUrl}
@@ -93,7 +94,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
             >
               <BsFillPlayFill size={30} />
             </div>
-            <FavoriteButton movieId={data?.id} />
+            <FavoriteButton movieId={data.id} />
             {/* <div className="cursor-pointer ml-auto group/item w-6 h-6 lg:w-10 lg:h-10 border-white border-2 rounded-full flex justify-center items-center transition hover:border-neutral-300">
               
             </div> */}

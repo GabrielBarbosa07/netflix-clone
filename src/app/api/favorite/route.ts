@@ -1,5 +1,4 @@
 import { NextResponse } from "next/server"
-import { NextApiRequest } from "next"
 
 import serverAuth from "../../../../lib/serverAuth";
 
@@ -8,34 +7,32 @@ import prismadb from "../../../../lib/prismadb"
 import { without } from "lodash";
 
 //Adicionando o filme aos filmes favoritos do currentUser
-export async function POST(req: NextApiRequest) {
+export async function POST(req: Request) {
     try {
         const { currentUser } = await serverAuth()
 
-        const { movieId } = req.body
-        console.log(movieId)
+        const { movieId } = await req.json()
 
         const existingMovie = await prismadb.movie.findUnique({
             where: {
-                id: movieId
+                id: movieId,
             }
-        })
-        console.log(existingMovie)
+        });
 
         if (!existingMovie) {
-            throw new Error("Invalid ID")
+            throw new Error('Invalid ID');
         }
 
         const user = await prismadb.user.update({
             where: {
-                email: currentUser?.email || "",
+                email: currentUser.email || '',
             },
             data: {
                 favoriteIds: {
                     push: movieId
                 }
             }
-        })
+        });
 
         return NextResponse.json(user, { status: 200 })
     } catch (error) {
@@ -45,11 +42,12 @@ export async function POST(req: NextApiRequest) {
 }
 
 //Removendo o filme dos filmes favoritos do currentUser
-export async function DELETE(req: NextApiRequest) {
+export async function DELETE(req: Request) {
     try {
         const { currentUser } = await serverAuth()
 
-        const { movieId } = req.body
+        const { movieId } = await req.json()
+        console.log(movieId)
 
         const existingMovie = await prismadb.movie.findUnique({
             where: {
