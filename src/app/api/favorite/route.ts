@@ -8,6 +8,10 @@ import { without } from "lodash";
 
 //Adicionando o filme aos filmes favoritos do currentUser
 export async function POST(req: Request) {
+    if (req.method !== "POST") {
+        return NextResponse.json({ status: 405 })
+    }
+
     try {
         const { currentUser } = await serverAuth()
 
@@ -43,6 +47,10 @@ export async function POST(req: Request) {
 
 //Removendo o filme dos filmes favoritos do currentUser
 export async function DELETE(req: Request) {
+    if (req.method !== "DELETE") {
+        return NextResponse.json({ status: 405 })
+    }
+
     try {
         const { currentUser } = await serverAuth()
 
@@ -74,6 +82,6 @@ export async function DELETE(req: Request) {
 
     } catch (error) {
         console.log(error)
-        return NextResponse.json({ status: 400 })
+        return NextResponse.json({ status: 500 })
     }
 }

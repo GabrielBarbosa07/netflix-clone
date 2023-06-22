@@ -12,7 +12,6 @@ interface MovieCardProps {
 
 const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
   const { push } = useRouter();
-  console.log(data.id)
 
   const redirectToWatch = useCallback(
     () => push(`/watch/${data.id}`),
