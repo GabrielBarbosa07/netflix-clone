@@ -3,6 +3,7 @@ import { NextResponse } from "next/server";
 import prismadb from "../../../../../lib/prismadb"
 import serverAuth from "../../../../../lib/serverAuth"
 
+//Pegando o filme pelo movieId da url
 export async function GET(req: Request) {
     if (req.method !== "GET") {
         return NextResponse.json({ status: 405 })
