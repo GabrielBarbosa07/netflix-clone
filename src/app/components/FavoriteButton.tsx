@@ -20,7 +20,6 @@ const FavoriteButton: React.FC<FavoriteButtonProps> = ({ movieId }) => {
   }, [currentUser, movieId]);
 
   //Fazendo a requisão dependendo se o filme já for favorito ou não.
-  //E atualizando os filmes favoritos do usuario
   const toggleFavorites = useCallback(async () => {
     let response;
 
@@ -34,6 +33,7 @@ const FavoriteButton: React.FC<FavoriteButtonProps> = ({ movieId }) => {
       });
     }
 
+    //E atualizando os filmes favoritos do usuario
     const updatedFavoriteIds = response?.data?.favoriteIds;
 
     mutate({
