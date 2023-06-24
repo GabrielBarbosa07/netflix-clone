@@ -5,6 +5,7 @@ import useMovie from "../../../../hooks/useMovie";
 
 import { useRouter } from "next/navigation";
 import { usePathname } from "next/navigation";
+import Loading from "@/app/loading";
 
 const Watch = () => {
   const { push } = useRouter();
@@ -24,18 +25,23 @@ const Watch = () => {
           onClick={() => push("/")}
           className="w-4 md:w-10 text-white cursor-pointer hover:opacity-80 transition font-bold"
         />
-        <p className="text-white text-1xl md:text-3xl font-bold">
-          <span className="font-light">Assistindo:</span>{" "}
-          {data?.title ? data.title : "carregando.."}
-        </p>
+        {data?.title ? (
+          <p className="text-white text-1xl md:text-3xl font-bold">
+            <span className="font-light">Assistindo:</span> {data.title}
+          </p>
+        ) : null}
       </nav>
 
-      <video
-        className="h-full w-full"
-        autoPlay
-        controls
-        src={data?.videoUrl}
-      ></video>
+      {data?.title ? (
+        <video
+          className="h-full w-full"
+          autoPlay
+          controls
+          src={data?.videoUrl}
+        ></video>
+      ) : (
+        <Loading />
+      )}
     </div>
   );
 };
