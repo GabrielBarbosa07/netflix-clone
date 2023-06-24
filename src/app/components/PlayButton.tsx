@@ -7,11 +7,11 @@ interface PlayButtonProps {
 }
 
 const PlayButton: React.FC<PlayButtonProps> = ({ movieId }) => {
-  const router = useRouter();
+  const { push } = useRouter();
 
   return (
     <button
-      onClick={() => router.push(`/watch/${movieId}`)}
+      onClick={() => push(`/watch/${movieId}`)}
       className="
     bg-white 
     rounded-md 
