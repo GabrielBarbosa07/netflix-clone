@@ -6,16 +6,6 @@ import PlayButton from "./PlayButton";
 import useBillboard from "../../../hooks/useBillboard";
 import useInfoModal from "../../../hooks/useInfoModal";
 
-interface MovieProps {
-  id: string;
-  title: string;
-  description: string;
-  videoUrl: string;
-  thumbnailUrl: string;
-  genre: string;
-  duration: string;
-}
-
 const Billboard = () => {
   const { data } = useBillboard();
   const { openModal } = useInfoModal();
@@ -34,14 +24,14 @@ const Billboard = () => {
         loop
         src={data?.videoUrl}
       ></video>
-      <div className="absolute top-[30%] md:top-[40%] ml-4 md:ml-16">
-        <p className="text-white text-1xl md:text-5xl h-full w-[50%] lg:text-6xl font-bold drop-shadow-xl">
+      <div className="absolute max-h-full top-[30%] md:top-[40%] ml-4 md:ml-16">
+        <p className="text-white text-xl md:text-5xl h-full w-[50%] lg:text-6xl font-bold drop-shadow-xl">
           {data?.title}
         </p>
-        <p className="text-white text-[8px] md:text-lg mt-3 md:mt-8 w-[90%] md:w-[80%] lg:w-[50%] drop-shadow-xl">
+        <p className="text-white text-justify sm:text-[4px] md:text-lg mt-3 md:mt-8 w-[90%] md:w-[80%] lg:w-[50%] drop-shadow-xl ">
           {data?.description}
         </p>
-        <div className="flex flex-row items-center mt-3 md:mt-4 gap-3">
+        <div className="flex flex-row items-center my-3 md:mt-4 gap-3">
           <PlayButton movieId={data?.id} />
           <button
             onClick={handleOpenModal}

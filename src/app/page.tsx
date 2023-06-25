@@ -36,7 +36,7 @@ export default function Home() {
           <InfoModal visible={isOpen} onClose={closeModal} />
           <Navbar />
           <Billboard />
-          <div className="pb-40">
+          <div className="max-[496px]:py-12 max-[310px]:py-20">
             <MovieList title="Tendência Agora" data={movies} />
             <MovieList title="Minha Lista" data={favorites} />
           </div>
