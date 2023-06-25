@@ -3,13 +3,14 @@ import { signOut, useSession } from "next-auth/react";
 import Image from "next/image";
 
 import defaultBlue from "../../../public/images/default-blue.png";
+import useCurrentUser from "../../../hooks/useCurrentUser";
 
 interface AccountMenuProps {
   visible?: boolean;
 }
 
 const AccountMenu: React.FC<AccountMenuProps> = ({ visible }) => {
-  const { data: session } = useSession();
+  const { data } = useCurrentUser();
 
   if (!visible) {
     return null;
@@ -21,7 +22,7 @@ const AccountMenu: React.FC<AccountMenuProps> = ({ visible }) => {
         <div className="px-3 group/item flex flex-row gap-3 items-center w-full">
           <Image className="rounded-md" src={defaultBlue} alt="" width={32} />
           <p className="text-white text-sm group-hover/item:underline">
-            {session?.user?.name}
+            {data?.name}
           </p>
         </div>
         <hr className="bg-gray-600 border-0 h-px my-4" />

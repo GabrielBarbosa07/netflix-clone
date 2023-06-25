@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
+  --background-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
 }
@@ -15,7 +15,7 @@
 
 body {
   @apply bg-zinc-900 h-full overflow-x-hidden;
-  min-width: 410px
+
 }
 
 #__next {
