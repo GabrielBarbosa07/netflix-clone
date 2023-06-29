@@ -7,7 +7,12 @@ import { Metadata } from "next";
 
 const roboto = Roboto_Flex({ subsets: ["latin"] });
 
-export const dynamic = "force-dynamic"
+export const dynamic = 'auto'
+export const dynamicParams = true
+export const revalidate = false
+export const fetchCache = 'auto'
+export const runtime = 'nodejs'
+export const preferredRegion = 'auto'
 
 export const metadata: Metadata = {
   title: "NetFlix Clone",
