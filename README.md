@@ -1,34 +1,60 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Construindo um Clone Netflix Fullstack com React, NextJS, TailwindCSS e Prisma
 
-## Getting Started
+![image](https://user-images.githubusercontent.com/23248726/220005380-ede4fb14-0b8d-4582-a063-3cc4beeccfb7.png)
 
-First, run the development server:
+Este é um repositório para um FullStack Netflix Clone usando React, NextJS, TailwindCSS e Prisma.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+Características:
+
+- Variáveis de ​​ambiente, Typescript, NextJS
+- MongoDB e conexão com Prisma, criação de banco de dados
+- Autenticação com Next Auth, Google e Github Login
+- Capacidade de responsividade total em todas as páginas
+- Autenticação baseada em cookies
+- Criação de API e Controllers
+- Efeitos e animações orientados a detalhes usando TailwindCSS
+- React SWR data fetching
+- Gerenciamento do estado com Zustand
+
+### Pré-requisitos
+
+**Versão do Node 14.x**
+
+### Clonando o repositório
+
+```shell
+git clone https://github.com/GabrielBarbosa07/netflix-clone.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Instalar pacotes
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```shell
+npm i
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Setup do arquivo .env
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+```js
+DATABASE_URL=
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
+GITHUB_ID=
+GITHUB_SECRET=
+NEXTAUTH_JWT_SECRET=
+NEXTAUTH_SECRET=
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Inicie o app
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```shell
+npm run dev
+```
 
-## Deploy on Vercel
+## Comandos disponíveis
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Executando comandos com npm `npm run [comando]`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+| comando         | descrição                              |
+| :-------------- | :--------------------------------------- |
+| `dev`           | Inicia uma instância de desenvolvimento do aplicativo |
