@@ -3,16 +3,18 @@
 import "./globals.css";
 import { Roboto_Flex } from "next/font/google";
 import { SessionProvider } from "next-auth/react";
-// import { Metadata } from "next";
+import { Metadata } from "next";
 
 const roboto = Roboto_Flex({ subsets: ["latin"] });
 
-// export const metadata: Metadata = {
-//   title: "NetFlix Clone",
-//   description: "Clone Da Netflix, feita totalmente com Next.js 13",
-//   viewport: { initialScale: 1, viewportFit: "cover" },
-//   authors: { name: "Gabriel Barbosa" },
-// };
+export const dynamic = "force-dynamic"
+
+export const metadata: Metadata = {
+  title: "NetFlix Clone",
+  description: "Clone Da Netflix, feita totalmente com Next.js 13",
+  viewport: { initialScale: 1, viewportFit: "cover" },
+  authors: { name: "Gabriel Barbosa" },
+};
 
 export interface AuthContextProps {
   children: React.ReactNode;

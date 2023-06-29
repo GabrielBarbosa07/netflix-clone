@@ -6,6 +6,8 @@ import prismadb from "../../../../lib/prismadb"
 
 import { without } from "lodash";
 
+export const dynamic = "force-dynamic"
+
 //Adicionando o filme aos filmes favoritos do currentUser
 export async function POST(req: Request) {
     if (req.method !== "POST") {

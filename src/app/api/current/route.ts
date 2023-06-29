@@ -1,7 +1,8 @@
-import { NextApiRequest } from "next";
 import { NextResponse } from "next/server";
 
 import serverAuth from "../../../../lib/serverAuth";
+
+export const dynamic = "force-dynamic"
 
 export async function GET(req: Request) {
     if (req.method !== "GET") {

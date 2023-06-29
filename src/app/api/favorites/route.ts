@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server"
 import serverAuth from "../../../../lib/serverAuth";
 
+export const dynamic = "force-dynamic"
+
 //Trazendo os filmes favoritos do currentUser
 export async function GET() {
     try {
