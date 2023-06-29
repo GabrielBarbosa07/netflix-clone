@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 
 import serverAuth from "../../../../lib/serverAuth";
 
-export async function GET(req: NextApiRequest) {
+export async function GET(req: Request) {
     if (req.method !== "GET") {
         return NextResponse.json({ status: 405 })
     }

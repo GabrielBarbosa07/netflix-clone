@@ -3,7 +3,7 @@ import { NextApiRequest } from "next"
 
 import prismadb from "../../../../lib/prismadb"
 
-export async function GET(req: NextApiRequest) {
+export async function GET(req: Request) {
 
     if (req.method !== "GET") {
         return NextResponse.json({ status: 405 })
