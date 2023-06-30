@@ -10,6 +10,8 @@ export const runtime = 'nodejs'
 export const preferredRegion = 'auto'
 
 export async function POST(req: Request) {
+    new Headers({ "Content-Type": "application/json" })
+
     if (req.method !== "POST") {
         return NextResponse.json({ status: 405 })
     }

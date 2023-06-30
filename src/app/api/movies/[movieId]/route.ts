@@ -12,6 +12,8 @@ export const preferredRegion = 'auto'
 
 //Pegando o filme pelo movieId da url
 export async function GET(req: Request) {
+    new Headers({ "Content-Type": "application/json" })
+
     if (req.method !== "GET") {
         return NextResponse.json({ status: 405 })
 

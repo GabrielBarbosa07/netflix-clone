@@ -11,6 +11,7 @@ export const preferredRegion = 'auto'
 
 export async function GET(req: Request) {
     new Headers({ "Content-Type": "application/json" })
+    
     if (req.method !== "GET") {
         return NextResponse.json({ status: 405 })
     }

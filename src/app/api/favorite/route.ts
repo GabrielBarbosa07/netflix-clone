@@ -15,6 +15,8 @@ export const preferredRegion = 'auto'
 
 //Adicionando o filme aos filmes favoritos do currentUser
 export async function POST(req: Request) {
+    new Headers({ "Content-Type": "application/json" })
+
     if (req.method !== "POST") {
         return NextResponse.json({ status: 405 })
     }
@@ -54,6 +56,8 @@ export async function POST(req: Request) {
 
 //Removendo o filme dos filmes favoritos do currentUser
 export async function DELETE(req: Request) {
+    new Headers({ "Content-Type": "application/json" })
+    
     if (req.method !== "DELETE") {
         return NextResponse.json({ status: 405 })
     }

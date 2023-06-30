@@ -11,6 +11,7 @@ export const preferredRegion = 'auto'
 //Trazendo os filmes favoritos do currentUser
 export async function GET() {
     new Headers({ "Content-Type": "application/json" })
+    
     try {
         const { currentUser } = await serverAuth()
 
