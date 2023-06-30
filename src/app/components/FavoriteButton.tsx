@@ -4,6 +4,7 @@ import { AiOutlinePlus, AiOutlineCheck } from "react-icons/ai";
 
 import useCurrentUser from "../../../hooks/useCurrentUser";
 import useFavorites from "../../../hooks/useFavorites";
+import { BaseUrl } from "../../../lib/fetcher";
 interface FavoriteButtonProps {
   movieId: string;
 }
@@ -24,11 +25,11 @@ const FavoriteButton: React.FC<FavoriteButtonProps> = ({ movieId }) => {
     let response;
 
     if (isFavorite) {
-      response = await axios.delete("http://localhost:3000/api/favorite", {
+      response = await axios.delete(`${BaseUrl}/api/favorite`, {
         data: { movieId },
       });
     } else {
-      response = await axios.post("http://localhost:3000/api/favorite", {
+      response = await axios.post(`${BaseUrl}/api/favorite`, {
         movieId,
       });
     }

@@ -1,13 +1,13 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 import Loading from "../loading";
-import Image from "next/image";
 import defaultBlue from "../../../public/images/default-blue.png";
-import Link from "next/link";
 
 const Profiles = () => {
   const { push } = useRouter();

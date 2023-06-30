@@ -12,13 +12,14 @@ import { useRouter } from "next/navigation";
 
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
+import { BaseUrl } from "../../../lib/fetcher";
 
-export const dynamic = 'auto'
-export const dynamicParams = true
-export const revalidate = false
-export const fetchCache = 'auto'
-export const runtime = 'nodejs'
-export const preferredRegion = 'auto'
+export const dynamic = "auto";
+export const dynamicParams = true;
+export const revalidate = false;
+export const fetchCache = "auto";
+export const runtime = "nodejs";
+export const preferredRegion = "auto";
 
 const Auth = () => {
   const { status } = useSession();
@@ -63,7 +64,7 @@ const Auth = () => {
         );
 
       try {
-        await axios.post("http://localhost:3000/api/register", {
+        await axios.post(`${BaseUrl}/api/register`, {
           email,
           name,
           password,
