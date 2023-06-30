@@ -6,13 +6,6 @@ import prismadb from "../../../../lib/prismadb"
 
 import { without } from "lodash";
 
-export const dynamic = 'auto'
-export const dynamicParams = true
-export const revalidate = false
-export const fetchCache = 'auto'
-export const runtime = 'nodejs'
-export const preferredRegion = 'auto'
-
 //Adicionando o filme aos filmes favoritos do currentUser
 export async function POST(req: Request) {
     new Headers({ "Content-Type": "application/json" })

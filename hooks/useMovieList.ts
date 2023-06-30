@@ -1,8 +1,8 @@
 import useSwr from 'swr'
-import fetcher from "../lib/fetcher"
+import fetcher, { BaseUrl } from "../lib/fetcher"
 
 const useMovieList = () => {
-  const { data, error, isLoading } = useSwr('http://localhost:3000/api/movies', fetcher, {
+  const { data, error, isLoading } = useSwr(`${BaseUrl}/api/movies`, fetcher, {
     revalidateIfStale: false,
     revalidateOnFocus: false,
     revalidateOnReconnect: false,

@@ -2,13 +2,6 @@ import prismadb from "../../../../lib/prismadb"
 import bcrypt from "bcrypt"
 import { NextResponse } from "next/server"
 
-export const dynamic = 'auto'
-export const dynamicParams = true
-export const revalidate = false
-export const fetchCache = 'auto'
-export const runtime = 'nodejs'
-export const preferredRegion = 'auto'
-
 export async function POST(req: Request) {
     new Headers({ "Content-Type": "application/json" })
 

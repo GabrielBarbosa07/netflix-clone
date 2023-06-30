@@ -1,9 +1,9 @@
 import useSWR from "swr"
 
-import fetcher from "../lib/fetcher"
+import fetcher, { BaseUrl } from "../lib/fetcher"
 
 const useBillboard = () => {
-    const { data, error, isLoading } = useSWR("http://localhost:3000/api/random", fetcher, {
+    const { data, error, isLoading } = useSWR(`${BaseUrl}/api/random`, fetcher, {
         revalidateIfStale: false,
         revalidateOnFocus: false,
         revalidateOnReconnect: false,

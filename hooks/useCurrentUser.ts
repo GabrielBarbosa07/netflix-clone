@@ -1,9 +1,9 @@
 import useSWR from "swr"
 
-import fetcher from "../lib/fetcher"
+import fetcher, { BaseUrl } from "../lib/fetcher"
 
 const useCurrentUser = () => {
-    const { data, error, isLoading, mutate } = useSWR("http://localhost:3000/api/current", fetcher)
+    const { data, error, isLoading, mutate } = useSWR(`${BaseUrl}/api/current`, fetcher)
 
     return {
         data,
