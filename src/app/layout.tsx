@@ -7,19 +7,11 @@ import { SessionProvider } from "next-auth/react";
 
 const roboto = Roboto_Flex({ subsets: ["latin"] });
 
-export const dynamic = 'auto'
-export const dynamicParams = true
-export const revalidate = false
-export const fetchCache = 'auto'
-export const runtime = 'nodejs'
-export const preferredRegion = 'auto'
+export const dynamic = "force-dynamic"
 
-// export const metadata: Metadata = {
-//   title: "NetFlix Clone",
-//   description: "Clone Da Netflix, feita totalmente com Next.js 13",
-//   viewport: { initialScale: 1, viewportFit: "cover" },
-//   authors: { name: "Gabriel Barbosa" },
-// };
+export const metadata = {
+  title: "Netflix Clone !",
+};
 
 export interface AuthContextProps {
   children: React.ReactNode;

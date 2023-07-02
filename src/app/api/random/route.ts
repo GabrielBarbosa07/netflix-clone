@@ -2,6 +2,8 @@ import { NextResponse } from "next/server"
 
 import prismadb from "../../../../lib/prismadb"
 
+export const dynamic = "force-dynamic"
+
 export async function GET(req: Request) {
     new Headers({ "Content-Type": "application/json" })
     
