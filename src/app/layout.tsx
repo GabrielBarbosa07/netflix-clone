@@ -3,15 +3,10 @@
 import "./globals.css";
 import { Roboto_Flex } from "next/font/google";
 import { SessionProvider } from "next-auth/react";
-// import { Metadata } from "next";
 
 const roboto = Roboto_Flex({ subsets: ["latin"] });
 
 export const dynamic = "force-dynamic"
-
-export const metadata = {
-  title: "Netflix Clone !",
-};
 
 export interface AuthContextProps {
   children: React.ReactNode;

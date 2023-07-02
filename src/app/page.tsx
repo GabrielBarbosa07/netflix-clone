@@ -13,6 +13,8 @@ import useMovieList from "../../hooks/useMovieList";
 import useFavorites from "../../hooks/useFavorites";
 import useInfoModal from "../../hooks/useInfoModal";
 
+export const dynamic = "force-dynamic"
+
 export default function Home() {
   const { data: movies = [] } = useMovieList();
   const { data: favorites = [] } = useFavorites();
