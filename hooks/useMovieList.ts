@@ -1,8 +1,8 @@
 import useSwr from 'swr'
-import fetcher, { BaseUrl } from "../lib/fetcher"
+import fetcher from "../lib/fetcher"
 
 const useMovieList = () => {
-  const { data, error, isLoading } = useSwr(`${BaseUrl}/api/movies`, fetcher, {
+  const { data, error, isLoading } = useSwr(`https://netflix-clone-gb.vercel.app/api/movies`, fetcher, {
     revalidateIfStale: false,
     revalidateOnFocus: false,
     revalidateOnReconnect: false,
