@@ -1,9 +1,10 @@
 import useSWR from "swr"
 
-import fetcher from "../lib/fetcher"
+import fetcher, { BASE_URL } from "../lib/fetcher"
+
 
 const useBillboard = () => {
-    const { data, error, isLoading } = useSWR(`https://netflix-clone-gb.vercel.app/api/random`, fetcher, {
+    const { data, error, isLoading } = useSWR(`${BASE_URL}/api/random`, fetcher, {
         revalidateIfStale: false,
         revalidateOnFocus: false,
         revalidateOnReconnect: false,

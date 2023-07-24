@@ -1,8 +1,8 @@
 import useSwr from 'swr'
-import fetcher from '../lib/fetcher';
+import fetcher, { BASE_URL } from '../lib/fetcher';
 
 const useFavorites = () => {
-    const { data, error, isLoading, mutate } = useSwr(`https://netflix-clone-gb.vercel.app/api/favorites`, fetcher, {
+    const { data, error, isLoading, mutate } = useSwr(`${BASE_URL}/api/favorites`, fetcher, {
         revalidateIfStale: false,
         revalidateOnFocus: false,
         revalidateOnReconnect: false,

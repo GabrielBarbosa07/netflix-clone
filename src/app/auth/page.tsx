@@ -12,6 +12,7 @@ import { useRouter } from "next/navigation";
 
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
+import { BASE_URL } from "../../../lib/fetcher";
 
 export const dynamic = "auto";
 export const dynamicParams = true;
@@ -63,7 +64,7 @@ const Auth = () => {
         );
 
       try {
-        await axios.post(`https://netflix-clone-gb.vercel.app/api/register`, {
+        await axios.post(`${BASE_URL}/api/register`, {
           email,
           name,
           password,

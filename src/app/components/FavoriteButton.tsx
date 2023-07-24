@@ -4,6 +4,7 @@ import { AiOutlinePlus, AiOutlineCheck } from "react-icons/ai";
 
 import useCurrentUser from "../../../hooks/useCurrentUser";
 import useFavorites from "../../../hooks/useFavorites";
+import { BASE_URL } from "../../../lib/fetcher";
 interface FavoriteButtonProps {
   movieId: string;
 }
@@ -24,11 +25,11 @@ const FavoriteButton: React.FC<FavoriteButtonProps> = ({ movieId }) => {
     let response;
 
     if (isFavorite) {
-      response = await axios.delete(`https://netflix-clone-gb.vercel.app/api/favorite`, {
-        data: { movieId },
+      response = await axios.delete(`${BASE_URL}/api/favorite`, {
+        data: movieId,
       });
     } else {
-      response = await axios.post(`https://netflix-clone-gb.vercel.app/api/favorite`, {
+      response = await axios.post(`${BASE_URL}/api/favorite`, {
         movieId,
       });
     }
