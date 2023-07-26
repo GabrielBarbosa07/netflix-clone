@@ -10,7 +10,7 @@ import FavoriteButton from "./FavoriteButton";
 import useInfoModal from "../../../hooks/useInfoModal";
 
 interface MovieCardProps {
-  data: Record<string, any>;
+  data: any;
 }
 
 const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
