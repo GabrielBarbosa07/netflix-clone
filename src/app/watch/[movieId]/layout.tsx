@@ -1,7 +1,7 @@
 "use client";
 import { usePathname } from "next/navigation";
 
-export async function getMoviePerId(movieId: string) {
+async function getMoviePerId(movieId: string) {
   const res = await fetch(`http://localhost:3000/api/movies/${movieId}`);
   const data = await res.json();
   return data;

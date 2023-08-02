@@ -13,13 +13,11 @@ export interface AuthContextProps {
 export default function RootLayout({ children }: AuthContextProps) {
   return (
     <html lang="pt-br">
-   
-        <meta
-          httpEquiv="Content-Security-Policy"
-          content="img-src * 'self' data: http:;"
-        />
-        <title>Netflix</title>
- 
+      <meta
+        httpEquiv="Content-Security-Policy"
+        content="img-src * 'self' data: http:;"
+      />
+      <title>Netflix</title>
 
       <SessionProvider>
         <body className={roboto.className}>{children}</body>
