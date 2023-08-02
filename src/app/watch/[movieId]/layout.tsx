@@ -1,8 +1,9 @@
 "use client";
 import { usePathname } from "next/navigation";
+import { BASE_URL } from "../../../../lib/fetcher";
 
 async function getMoviePerId(movieId: string) {
-  const res = await fetch(`http://localhost:3000/api/movies/${movieId}`);
+  const res = await fetch(`${BASE_URL}/api/movies/${movieId}`);
   const data = await res.json();
   return data;
 }
