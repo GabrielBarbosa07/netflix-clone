@@ -4,4 +4,4 @@ const fetcher = (url: string) => axios.get(url, { headers: { "Content-Type": "Ap
 
 export default fetcher
 
-export const BASE_URL = "https://netflix-clone-gb.vercel.app" 
+export const BASE_URL = "https://netflix-clone-gb.vercel.app"
